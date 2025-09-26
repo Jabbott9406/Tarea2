@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainEstudiante {
     int matricula;
@@ -14,7 +15,7 @@ public class MainEstudiante {
 
     @Override
     public String toString() {
-        return matricula + "-" + nombre + "-" + indiceAcademico;
+        return matricula + " - " + nombre + " - " + indiceAcademico;
     }
 
     public static List<MainEstudiante> ordenarMergeSort(List<MainEstudiante> lista, boolean ascendente) {
@@ -56,28 +57,32 @@ public class MainEstudiante {
     }
 
 
-    public static int generarAleatorio(int min, int max) {
-        return (int) (Math.random() * (max - min + 1) + min);
-    }
+//    public static int generarAleatorio(int min, int max) {
+//        return (int) (Math.random() * (max - min + 1) + min);
+//    }
 
     public static void main(String[] args) {
         ArrayList<MainEstudiante> lista = new ArrayList<MainEstudiante>();
+        Random rand = new Random();
         for (int i = 0; i < 10; i++) {
-            MainEstudiante e = new MainEstudiante(generarAleatorio(1, 4), " Estudiante #[" + i + "] ", generarAleatorio(1000, 1223));
+            int matricula = 1000 + rand.nextInt(9000);
+            String nombre = "Estudiante #" + i;
+            double indice = Math.round((rand.nextDouble() * 5.0) * 100.0) / 100.0;
+            MainEstudiante e = new MainEstudiante(matricula, nombre, indice);
             lista.add(e);
         }
-        System.out.println("Lista original:");
+        System.out.println("\nLista original:");
         for (MainEstudiante e : lista) {
             System.out.println(e);
         }
 
         List<MainEstudiante> listaOrdenadaAsc = ordenarMergeSort(lista, true);
-        System.out.println("\nLista ordenada ascendente por nombre:");
+        System.out.println("\nLista ordenada ascendente por Indice Academico:");
         for (MainEstudiante e : listaOrdenadaAsc) {
             System.out.println(e);
         }
         List<MainEstudiante> listaOrdenadaDesc = ordenarMergeSort(lista, false);
-        System.out.println("\nLista ordenada descendente por nombre:");
+        System.out.println("\nLista ordenada descendente por Indice Academico:");
         for (MainEstudiante e : listaOrdenadaDesc) {
             System.out.println(e);
         }
