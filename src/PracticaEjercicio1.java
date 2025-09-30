@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class PracticaEjercicio1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        long tiempoInicial = System.nanoTime();
-//        System.out.println("Ingrese los elementos separados por espacio:");
-//        String[] entrada = sc.nextLine().split(" ");
-//        System.out.println("Ingrese el valor de T:");
-//        int T = sc.nextInt();
-        String [] entrada = {"A", "B", "C", "D", "E", "F", "G", "H"};
-        int T = 3;
+//        long tiempoInicial = System.nanoTime();
+        System.out.println("Ingrese los elementos separados por espacio:");
+        String[] entrada = sc.nextLine().split(" ");
+        System.out.println("Ingrese el valor de T:");
+        int T = sc.nextInt();
+//        String [] entrada = {"A", "B", "C", "D", "E", "F", "G", "H"};
+//        int T = 3;
 
         if (entrada.length % 2 != 0 || T < 1 || T >= entrada.length) {
             System.out.println("Entrada inválida.");
@@ -35,7 +35,7 @@ public class PracticaEjercicio1 {
             System.out.print(s + " ");
         }
         sc.close();
-        System.out.println("Tiempo de Ejecución: " + ((System.nanoTime() - tiempoInicial) / 1_000_000.0) + " miliSegundos");
+//        System.out.println("Tiempo de Ejecución: " + ((System.nanoTime() - tiempoInicial) / 1_000_000.0) + " miliSegundos");
     }
 
     public static void rotarElementos(String[] arr, int inicio, int fin) {
